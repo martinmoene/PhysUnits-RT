@@ -36,7 +36,7 @@ Adapted from Boost.Units:
 - <b>System</b>: A unit system is a collection of base units representing all the measurable entities of interest for a specific problem. For example, the SI unit system defines seven base units : length ([L]) in meters, mass ([M]) in kilograms, time ([T]) in seconds, current ([I]) in amperes, temperature ([theta]) in kelvin, amount ([N]) in moles, and luminous intensity ([J]) in candelas. All measurable entities within the SI system can be represented as products of various integer or rational powers of these seven base units.
 - <b>Quantity</b>: A quantity represents a concrete amount of a unit. Thus, while the meter is the base unit of length in the SI system, 5.5 meters is a quantity of length in that system.
 
-### Limits
+### Limitations
 This library only supports the use of the <em>SI unit system</em>. Note however that the library does provide a fixed number (10) of extension dimensions that you can assign names to.
 
 This library only supports <em>integral powers</em> of the dimensions.
