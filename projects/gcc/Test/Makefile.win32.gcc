@@ -1,0 +1,60 @@
+#
+# ./projects/gcc/Test/Makefile.win32.gcc
+#
+# Created by Martin on 16 October 2012.
+# Copyright 2012 Universiteit Leiden. All rights reserved.
+#
+# Distributed under the Boost Software License, Version 1.0. (See accompanying
+# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+#
+
+INCDIR = ../../../
+HDRDIR = $(INCDIR)/phys/units/
+SRCDIR = ../../Test/
+
+HEADERS = \
+    io.hpp \
+    io_input.hpp \
+    io_output.hpp \
+    io_output_eng.hpp \
+    other_units.hpp \
+    physical_constants.hpp \
+    quantity.hpp \
+    TestUtil.hpp
+
+OBJS = \
+    Test.o \
+    TestArithmetic.o \
+    TestComparison.o \
+    TestCompile.o \
+    TestInput.o \
+    TestOutput.o \
+    TestFunction.o \
+    TestPrefix.o \
+    TestUnit.o
+
+vpath %.hpp $(HDRDIR)
+vpath %.cpp $(SRCDIR)
+
+CC = g++
+CXXFLAGS = -Wall -I$(INCDIR) -I$(CATCH_INCLUDE)
+
+%.o: %.cpp $(HEADERS)
+
+%.exe: %.o
+	$(CC) -o $*.exe $^
+
+all : Test.exe
+	./Test.exe
+
+Test.exe : $(OBJS)
+
+clean:
+	-rm *.bak *.o
+
+distclean: clean
+	-rm *.exe
+
+#
+# end of file
+#

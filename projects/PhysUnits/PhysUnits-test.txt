@@ -1,0 +1,81 @@
+1 m
+2 ym
+3 am
+4 fm
+5 pm
+6 nm
+7 um
+8 mm
+9 cm
+10 dm
+11 dam
+12 hm
+13 km
+14 Mm
+15 Gm
+16 Tm
+17 Pm
+18 Em
+19 zm
+20 Zm
+21 Ym
+
+22 m2
+23 m+2
+24 m-2
+
+(23 m)
+(24 m)2
+25 (2 m)
+26 (2 m)2
+
+27 1/s
+28 m/s
+29 m/s2
+30 m/s.m/s
+
+31 m
+32 kg
+33 s
+34 A
+35 K
+36 mol
+37 cd
+38 g
+39 Hz
+40 N
+41 Pa
+42 J
+43 W
+44 C
+45 J
+46 V
+47 F
+48 Ohm
+49 S
+40 Wb
+41 T
+42 H
+43 'C
+44 lm
+45 lx
+46 Bq
+47 Gy
+48 Sv
+49 d
+50 min
+51 h
+52 l
+
+min/s
+h/s
+d/s
+365 d/s
+
+Foo
+foo
+ffoo
+!foo
+f!foo
+
+42

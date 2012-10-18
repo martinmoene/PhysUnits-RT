@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Applications" />
+		<Option pch_mode="2" />
+		<Option compiler="microsoft_visual_c_60" />
+		<Build>
+			<Target title="default">
+				<Option output="GrowSpectroscopy" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="microsoft_visual_c_60" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="/W3" />
+		</Compiler>
+		<Unit filename="..\PhysUnits\Makefile.win32.gcc" />
+		<Unit filename="..\PhysUnits\Makefile.win32.vc" />
+		<Unit filename="..\PhysUnits\PhysUnits-test.bat" />
+		<Unit filename="..\PhysUnits\PhysUnits-test.txt" />
+		<Unit filename="..\PhysUnits\PhysUnits.cpp" />
+		<Unit filename="..\PhysUnits\mk.win32.gcc.bat" />
+		<Unit filename="..\PhysUnits\mk.win32.vc.bat" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

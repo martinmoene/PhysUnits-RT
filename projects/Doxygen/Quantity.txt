@@ -1,0 +1,180 @@
+/*
+ * ./doxygen/Quantity.txt
+ *
+ * Created by Martin on 11 October 2012.
+ * Copyright 2012 Universiteit Leiden. All rights reserved.
+ *
+ * Distributed under the Boost Software License, Version 1.0. (See accompanying
+ * file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+ */
+
+/**
+ *
+\mainpage Runtime Quantity Library
+
+A C++ library for run-time dimensional analysis and unit/quantity manipulation and conversion.
+<br>
+<br>
+This code is based on the compile-time library %quantity.hpp by Michael S. Kenniston[1] and adapted and expanded for runtime use by Martin Moene. This easy to use header-only library is intended to work with a wide range of compilers, including MSVC 6.
+
+\section example Example
+\include hello.cpp
+
+<h2>Other libraries</h2>
+- <a href="https://github.com/martinmoene/PhysUnits-CT">PhysUnits-CT</a> - Compile-time companion of this library.
+- <a href="http://www.boost.org/doc/libs/1_51_0/libs/units/">Boost.Units</a> - Zero-overhead dimensional analysis and unit/quantity manipulation and conversion in C++.
+
+\section usage Usage
+
+\subsection terms Definition of terms
+
+Adapted from Boost.Units:
+- <b>Base dimension</b>: A base dimension is loosely defined as a measurable entity of interest; in conventional dimensional analysis, base dimensions include length ([L]), mass ([M]), time ([T]), etc.. Base dimensions are essentially a tag type and provide no dimensional analysis functionality themselves.
+- <b>Dimension</b>: A collection of zero or more base dimensions, each potentially raised to a different rational power. For example, length = [L]^1, area = [L]^2, velocity = [L]^1/[T]^1, and energy = [M]^1 [L]^2/[T]^2 are all dimensions.
+- <b>Base unit</b>: A base unit represents a specific measure of a dimension. For example, while length is an abstract measure of distance, the meter is a concrete base unit of distance. Conversions are defined using base units. Much like base dimensions, base units are a tag type used solely to define units and do not support dimensional analysis algebra.
+- <b>Unit</b>: A set of base units raised to rational exponents, e.g. m^1, kg^1, m^1/s^2.
+- <b>System</b>: A unit system is a collection of base units representing all the measurable entities of interest for a specific problem. For example, the SI unit system defines seven base units : length ([L]) in meters, mass ([M]) in kilograms, time ([T]) in seconds, current ([I]) in amperes, temperature ([theta]) in kelvin, amount ([N]) in moles, and luminous intensity ([J]) in candelas. All measurable entities within the SI system can be represented as products of various integer or rational powers of these seven base units.
+- <b>Quantity</b>: A quantity represents a concrete amount of a unit. Thus, while the meter is the base unit of length in the SI system, 5.5 meters is a quantity of length in that system.
+
+\subsection limits Limits
+This library only supports the use of the <em>SI unit system</em>. Note however that the library does provide a fixed number (10) of extension dimensions that you can assign names to.
+
+This library only supports <em>integral powers</em> of the dimensions.
+
+The <em>representation or value type</em> in the implementation of quantity is fixed and cannot be defined separately for each quantity. However you can change the type for all uses within a translation unit by defining \c PHYS_UNITS_REP_TYPE before inclusion of header quantity.hpp. Default this type is \c double.
+
+\subsection output Output
+
+The following example shows the quantity type in the computation of work from force and distance and the printing of the result on standard output.
+\include work.cpp
+
+The output produced is:
+\include work.txt
+
+The following example demonstrates printing in default floating point notation and in <a href="http://en.wikipedia.org/wiki/Engineering_notation">engineering notation</a>, using <a href="http://en.wikipedia.org/wiki/Metric_prefix">metric prefixes</a>.
+\include engineering.cpp
+
+The output produced is:
+\include engineering.txt
+See namespaces \ref rt::phys::units::io "io" and \ref rt::phys::units::io::eng "io::eng" for further information.
+
+Instead of unit names such as J, you can also obtain the unit expressed in base dimensions.
+\include base.cpp
+
+The output produced is:
+\include base.txt
+
+<!-- \subsection alias Unit name aliasing -->
+
+\subsection extension Unit name extension
+There are ten extension dimensions available: \c extra_x0_d..\c extra_x9_d. You can define names for these dimensions on a first come, first serve basis. The following example demonstrates the extension with a new unit (dimension) named \c Foo.
+\include extend.cpp
+
+The output produced is:
+\include extend.txt
+If you only want to make a limited number of self-defined unit names available, you can predefine these via for example <tt>unit("Foo", extend())</tt> and omit parameter <tt>extend()</tt> from further calls to unit() and to_quantity().
+
+\subsection input Input
+
+A textual specification of a quantity can be converted to a quantity via function to_quantity() as the following examples demonstrates.
+
+\include input.cpp
+
+The output produced is:
+\include input.txt
+
+Recognized quantity formats are for example: 1 m, 1 m2, 1 m/s, 1 m/s2, 1 (4 cm)2, 33 Hz, 33 1/s. If the magnitude is omitted, it is taken to be 1. To prevent misinterpretation with self-defined unit names, an escape character can be used as in: !foo , f!foo (same as ffoo).
+
+Internally to_quantity() uses class \ref rt::phys::units::quantity_parser "quantity_parser".
+
+\subsection convenience_functions Convenience functions
+
+There are several convenience functions, such as:
+- \ref rt::phys::units::to_quantity(std::string text) "to_quantity( std::string text )" - the text, such as '9.8 m/s2' converted to quantity.
+- \ref rt::phys::units::to_unit(std::string text) "to_unit( std::string text )" - the text, such as '45 km/h' converted to quantity representing the unit as '1 km/h'.
+- \ref rt::phys::units::to_numerical_value(std::string text) "to_numerical_value( std::string text )" - the text, such as '45 km/h' converted to value as '45'
+- \ref rt::phys::units::magnitude(quantity const & q) "magnitude( quantity const & q )" - the quantity's magnitude, e.g. 1000 for 1 km.
+- \ref rt::phys::units::dimension(quantity const & q) "dimension( quantity const & q )" - the quantity's dimension, e.g. m/s for 1 km/h.
+- \ref rt::phys::units::to_unit_symbol(quantity const &q, name_symbol use) "to_unit_symbol( quantity const &q )" - the quantity's unit symol(s), for example 'm s-2'.
+- \ref rt::phys::units::to_real(quantity const &q) "to_real( quantity const &q )" - a dimensionless quantity's magnitude as floating point value.
+- \ref rt::phys::units::to_integer(quantity const &q) "to_integer( quantity const &q )" - a dimensionless quantity's magnitude as integral value.
+
+\subsection error_handling Error handling
+
+Exceptions are used to signal errors in expressions that use incompatible dimensions and for several error conditions related to handling the textual representation of a quantity.
+
+The following example demonstrates simple error handling that prints the message provided by the exception.
+
+\include exception.cpp
+
+The output produced is:
+\include exception.txt
+
+For an example that uses \ref rt::phys::units::quantity_parser_error "quantity_parser_error" from the \ref rt::phys::units::quantity_error
+"quantity exception hierarchy", see the error handling in the program
+<a href="https://svn.eld.leidenuniv.nl/repos/eld-moene/PhysUnitsRT/trunk/projects/PhysUnits/PhysUnits.cpp">PhysUnits.cpp</a>
+(local PhysUnits.cpp), function void interactive().
+
+\section mixing Mixing run-time and compile-time libraries
+Although this library seems to be in the phys::units namespace, it does so through \e using the \ref rt "rt namespace" in the global namespace. So this library actually lives in the rt::phys::units namespace. When you want to mix this library with its compile-time companion, the rt namespace must be applied. This can be accomplished by defining \c PHYS_UNITS_IN_RT_NAMESPACE.
+
+\section dependencies Dependencies
+This library has no dependencies other than the standard C++ libraries.
+
+\section performance Performance
+
+\verbatim
+Relative running time (lower is better)
+
+Compiler        Option : double : quantity
+-----------------------+--------+-------------
+GCC 4.6.2         -O2  :  1     :  222 (1)
+MS VC6/VS6        -O2  :  0.83  :  396 (1.8)
+MS VC8/VS2005     -O2  :  0.83  :  269 (1.2)
+MS VC2010/VS2010  -O2  :  0.66  :  391 (1.8)
+
+Measured on a AMD Athlon 64 X2 Dual Core Processor 5600+, 64kB L1 Data, 64kB L1 Instruction, 512kB L2, 3.2 GB RAM
+\endverbatim
+
+\section compilers Compilers known to work
+- GCC 4.5.2, 4.6.2
+- MS VC6/VS6 - (VC6 lacks ADL).
+- MS VC8/VS2005
+- MS VC2010/VS2010
+
+\section ideas Ideas for improvement
+Currently the number of extension dimensions is fixed. Perhaps the code can
+be made to work so that the number of extension dimensions can be specified
+via a user-defined value of \c PHYS_UNITS_QUANTITY_UNIT_EXT_COUNT.
+
+It may be nice if you can obtain a quantity in a unit representation of your choice, e.g. in kWh in stead of J [m+2 kg s-2]. See G.S. Novak. <a href="http://reference.kfupm.edu.sa/content/c/o/conversion_of_units_of_measurement__42431.pdf">Conversion of units of measurement (PDF)</a>". 1 August 1997.
+
+\subsection references References
+[1] Michael Kenniston. <a href="http://home.xnet.com/~msk/quantity/quantity.html">The Quantity Library</a>. (<a href="http://home.xnet.com/%7Emsk/quantity/quantity.html">Rationale</a>, Quantity <a href="http://www.xnet.com/%7Emsk/quantity">folder</a>). 16 July 2001, rev 0.4.
+
+[2] Ambler Thompson and Barry N. Taylor.
+<a href="http://physics.nist.gov/cuu/pdf/sp811.pdf">Guide for the Use of the International System of Units (SI)</a>.
+NIST Special Publication 811 2008 Edition.
+
+Code hosted on https://github.com/martinmoene/PhysUnits-RT
+ *
+ */
+
+/** \namespace rt namespace to hold phys namespace.
+ */
+
+/** \namespace rt::phys namespace to hold units namespace.
+ */
+
+/** \namespace rt::phys::units namespace for quantity-related stuff.
+ */
+
+/** \namespace rt::phys::units::detail namespace for non-public quantity-related stuff.
+ */
+
+/** \namespace rt::phys::units::io namespace for quantity input-output related stuff.
+ */
+
+/** \namespace rt::phys::units::io::eng namespace for quantity engineering output related stuff.
+ */
+

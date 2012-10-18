@@ -1,0 +1,25 @@
+Release Notes for Runtime Quantity C++ Library.
+
+
+Release 1.0.0 - 2012-10-18
+
+First public release.
+
+Features:
+- Added converting a text representation of a quantity or unit to a quantity.
+- Added formatting of non-base units, such as Ohm, m/s.
+- Added extending dimensions with user-defined dimensions/units.
+- Added doxygen documentation.
+- Changed tests to use Catch test framework by Phil Nash,
+  https://github.com/philsquared/Catch (VS2008, VS2010, GCC),
+  https://github.com/martinmoene/Catch (VS6 and above)
+
+
+Rev. 0.4 - 2001-07-16
+
+Original library by Michael S. Kenniston.
+
+___
+
+Features
+Bug Fix

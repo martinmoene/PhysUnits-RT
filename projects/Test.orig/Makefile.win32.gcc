@@ -1,0 +1,36 @@
+#
+# Makefile.win32.gcc
+#
+
+HEADERS = \
+   io.hpp \
+   io_input.hpp \
+   io_output.hpp \
+   io_output_eng.hpp \
+   other_units.hpp \
+   physical_constants.hpp \
+   quantity.hpp
+
+
+HEADERDIR = ../../phys/units
+HEADERS := $(addprefix $(HEADERDIR)/,$(HEADERS))
+
+CC = g++
+CXXFLAGS = -Wall -O2 -I../../
+
+%.o: %.cpp $(HEADERS)
+
+%.exe: %.o
+	$(CC) $< -o $*.exe
+
+all: demo.exe perf-test.exe regrtest1.exe regrtest2.exe simple.exe exceptions.exe
+
+clean:
+	-rm *.bak *.o
+
+distclean: clean
+	-rm *.exe
+
+#
+# end of file
+#

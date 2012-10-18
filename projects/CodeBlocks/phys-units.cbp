@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Phys Units RT" />
+		<Option pch_mode="2" />
+		<Option compiler="microsoft_visual_c_60" />
+		<Build>
+			<Target title="default">
+				<Option output="GrowSpectroscopy" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="microsoft_visual_c_60" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="/W3" />
+		</Compiler>
+		<Unit filename="..\..\LICENSE_1_0.txt" />
+		<Unit filename="..\..\License.orig.txt" />
+		<Unit filename="..\..\README.md" />
+		<Unit filename="..\..\Readme.orig.txt" />
+		<Unit filename="..\..\Readme.txt" />
+		<Unit filename="..\..\ReleaseNotes.txt" />
+		<Unit filename="..\..\doc\quantity.html" />
+		<Unit filename="..\..\doc\rationale.html" />
+		<Unit filename="..\..\doc\weblinks.html" />
+		<Unit filename="..\..\mk.archive.bat" />
+		<Unit filename="..\..\phys\units\io.hpp" />
+		<Unit filename="..\..\phys\units\io_input.hpp" />
+		<Unit filename="..\..\phys\units\io_output.hpp" />
+		<Unit filename="..\..\phys\units\io_output_eng.hpp" />
+		<Unit filename="..\..\phys\units\other_units.hpp" />
+		<Unit filename="..\..\phys\units\physical_constants.hpp" />
+		<Unit filename="..\..\phys\units\quantity.hpp" />
+		<Unit filename="..\Doxygen\Quantity-Style.css" />
+		<Unit filename="..\Doxygen\Quantity.txt" />
+		<Unit filename="..\Doxygen\examples\Makefile" />
+		<Unit filename="..\Doxygen\examples\base.cpp" />
+		<Unit filename="..\Doxygen\examples\base.txt" />
+		<Unit filename="..\Doxygen\examples\engineering.cpp" />
+		<Unit filename="..\Doxygen\examples\engineering.txt" />
+		<Unit filename="..\Doxygen\examples\exception.cpp" />
+		<Unit filename="..\Doxygen\examples\exception.txt" />
+		<Unit filename="..\Doxygen\examples\extend.cpp" />
+		<Unit filename="..\Doxygen\examples\extend.txt" />
+		<Unit filename="..\Doxygen\examples\hello.cpp" />
+		<Unit filename="..\Doxygen\examples\input.cpp" />
+		<Unit filename="..\Doxygen\examples\input.txt" />
+		<Unit filename="..\Doxygen\examples\work.cpp" />
+		<Unit filename="..\Doxygen\examples\work.txt" />
+		<Unit filename="..\Test.orig\Makefile.win32.gcc" />
+		<Unit filename="..\Test.orig\Makefile.win32.vc" />
+		<Unit filename="..\Test.orig\demo.cpp" />
+		<Unit filename="..\Test.orig\exceptions.cpp" />
+		<Unit filename="..\Test.orig\mk.win32.gcc.bat" />
+		<Unit filename="..\Test.orig\mk.win32.vc.bat" />
+		<Unit filename="..\Test.orig\perf-test.cpp" />
+		<Unit filename="..\Test.orig\regrtest1-old.cpp" />
+		<Unit filename="..\Test.orig\regrtest1.cpp" />
+		<Unit filename="..\Test.orig\regrtest2.cpp" />
+		<Unit filename="..\Test.orig\simple.cpp" />
+		<Unit filename="..\Test.orig\simplify_unit.cpp" />
+		<Unit filename="..\Test.orig\user_example.hpp" />
+		<Unit filename="..\Test\Test.cpp" />
+		<Unit filename="..\Test\TestArithmetic.cpp" />
+		<Unit filename="..\Test\TestComparison.cpp" />
+		<Unit filename="..\Test\TestCompile.cpp" />
+		<Unit filename="..\Test\TestFunction.cpp" />
+		<Unit filename="..\Test\TestInput.cpp" />
+		<Unit filename="..\Test\TestOutput.cpp" />
+		<Unit filename="..\Test\TestPrefix.cpp" />
+		<Unit filename="..\Test\TestUnit.cpp" />
+		<Unit filename="..\Test\TestUtil.hpp" />
+		<Unit filename="..\VS2005\Test\compile.bat" />
+		<Unit filename="..\VS2005\Test\mk.win32.vc.bat" />
+		<Unit filename="..\VS2010\Test\compile.bat" />
+		<Unit filename="..\VS2010\Test\mk.win32.vc.bat" />
+		<Unit filename="..\VS6\Test\Makefile.win32.vc" />
+		<Unit filename="..\VS6\Test\compile.bat" />
+		<Unit filename="..\VS6\Test\mk.win32.vc.bat" />
+		<Unit filename="..\doxygen\Doxyfile" />
+		<Unit filename="..\doxygen\Quantity-Footer.html" />
+		<Unit filename="..\gcc\Test\Makefile.win32.gcc" />
+		<Unit filename="..\gcc\Test\compile.bat" />
+		<Unit filename="..\gcc\Test\mk.win32.gcc.bat" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

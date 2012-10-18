@@ -1,0 +1,38 @@
+#
+# ./projects/PhysUnits/Makefile.win32.vc
+#
+# Created by Martin on 16 October 2012.
+# Copyright 2012 Universiteit Leiden. All rights reserved.
+#
+# Distributed under the Boost Software License, Version 1.0. (See accompanying
+# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+#
+
+HDRDIR = ../../phys/units
+SRCDIR = .
+OBJDIR = .
+
+HEADERS = \
+    $(HDRDIR)/io.hpp \
+    $(HDRDIR)/io_input.hpp \
+    $(HDRDIR)/io_output.hpp \
+    $(HDRDIR)/io_output_eng.hpp \
+    $(HDRDIR)/other_units.hpp \
+    $(HDRDIR)/physical_constants.hpp \
+    $(HDRDIR)/quantity.hpp
+
+CPPFLAGS = -nologo -W3 -Zm200 -EHsc -Ox -I../../ -D_CRT_SECURE_NO_WARNINGS
+
+all: PhysUnits.exe
+
+clean:
+  -rm *.bak *.obj
+
+distclean: clean
+  -rm *.exe
+
+PhysUnits.exe: PhysUnits.cpp $(HEADERS)
+
+#
+# end of file
+#

@@ -1,0 +1,41 @@
+#
+# ./projects/PhysUnits/Makefile.win32.gcc
+#
+# Created by Martin on 16 October 2012.
+# Copyright 2012 Universiteit Leiden. All rights reserved.
+#
+# Distributed under the Boost Software License, Version 1.0. (See accompanying
+# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+#
+
+HEADERS = \
+   io.hpp \
+   io_input.hpp \
+   io_output.hpp \
+   io_output_eng.hpp \
+   other_units.hpp \
+   physical_constants.hpp \
+   quantity.hpp
+
+HEADERDIR = ../../phys/units
+HEADERS := $(addprefix $(HEADERDIR)/,$(HEADERS))
+
+CC = g++
+CXXFLAGS = -Wall -O3 -I../../
+
+%.o: %.cpp $(HEADERS)
+
+%.exe: %.o
+	$(CC) $< -o $*.exe
+
+all: PhysUnits.exe
+
+clean:
+	-rm *.bak *.o
+
+distclean: clean
+	-rm *.exe
+
+#
+# end of file
+#
