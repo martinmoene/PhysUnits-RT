@@ -250,6 +250,7 @@ GCC 4.6.2         -O2  :  1     :  222 (1)
 MS VC6/VS6        -O2  :  0.83  :  396 (1.8)
 MS VC8/VS2005     -O2  :  0.83  :  269 (1.2)
 MS VC2010/VS2010  -O2  :  0.66  :  391 (1.8)
+
 Measured on a AMD Athlon 64 X2 Dual Core Processor 5600+, 64kB L1 Data, 64kB L1 Instruction, 512kB L2, 3.2 GB RAM
 ```
 
