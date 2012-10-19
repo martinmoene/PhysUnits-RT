@@ -7,7 +7,7 @@
 set RELEASE=1.0.0
 set DATE=20121018
 
-git archive --format tar --output ../PhysUnits-RT-%RELEASE%-%DATE%.tar.gz master
+git archive --format tar master | gzip > ../PhysUnits-RT-%RELEASE%-%DATE%.tar.gz
 
 endlocal & goto :EOF
 
