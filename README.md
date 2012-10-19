@@ -265,6 +265,8 @@ Ideas for improvement
 -----------------------
 Currently the number of extension dimensions is fixed. Perhaps the code can be made to work so that the number of extension dimensions can be specified via a user-defined value of `PHYS_UNITS_QUANTITY_UNIT_EXT_COUNT`.
 
+Allow to specify a conversion offset between two units, e.g. to make conversion between 'C and K possible (see Boost.Units).
+
 It may be nice if you can obtain a quantity in a unit representation of your choice, e.g. in kWh in stead of J [m+2 kg s-2]. See G.S. Novak. [Conversion of units of measurement (PDF)](http://reference.kfupm.edu.sa/content/c/o/conversion_of_units_of_measurement__42431.pdf)". 1 August 1997.
 
 ### References
