@@ -19,7 +19,11 @@
 
 Syntax (EBNF)
 
-     expression = [numerical-value] factor { (" "|"."|"/") factor } .
+  nv-expression = [numerical-value] term
+
+     expression = [value] term
+
+           term = factor { (" "|"."|"/") factor } .
 
          factor = prefixed-unit [power]
                 | "(" expression ")" .
@@ -27,6 +31,8 @@ Syntax (EBNF)
   prefixed-unit = [prefix] unit
 
 numerical-value = floating-point-number
+
+          value = floating-point-number
 
           power = signed-integral-number
 
@@ -298,7 +304,7 @@ private:
     }
 
     /*
-     * nv-expression = [numerical-value] expression .
+     * nv-expression = [numerical-value] term .
      */
     quantity parseNumValueExpression()
     {
@@ -306,11 +312,11 @@ private:
 
         num_value = parseNumericalValue();
 
-        return num_value * parseExpression();
+        return num_value * parseTerm();
     }
 
     /*
-     * expression = [value] factor { (" "|"."|"/") factor } .
+     * expression = [value] term .
      */
     quantity parseExpression()
     {
@@ -347,7 +353,7 @@ private:
     }
 
     /*
-     * factor { (" "|"."|"/") factor } .
+     * term = factor { (" "|"."|"/") factor } .
      */
     quantity parseTerm()
     {
@@ -393,7 +399,8 @@ private:
     }
 
     /*
-     * parse prefix and unit as inseparable combination.
+     * factor = prefixed-unit [power]
+     *        | "(" expression ")" .
      */
     quantity parseFactor()
     {
