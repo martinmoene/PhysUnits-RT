@@ -159,7 +159,7 @@ If you only want to make a limited number of self-defined unit names available, 
 
 ### Input
 
-A textual specification of a quantity can be converted to a quantity via function `to_quantity()` as the following examples demonstrates.
+A textual specification of a quantity can be converted to a quantity via function `to_quantity()` as the following example demonstrates.
 
 ```C++
 #include <iostream>
