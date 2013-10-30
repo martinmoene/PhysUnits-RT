@@ -22,6 +22,7 @@ int main()
 
 <h2>Other libraries</h2>
 - [PhysUnits-CT](https://github.com/martinmoene/PhysUnits-CT) - Compile-time companion of this library.
+- [PhysUnits-CT-Cpp11](https://github.com/martinmoene/PhysUnits-CT-Cpp11) - C++11 compile-time companion of this library.
 - [Boost.Units](http://www.boost.org/doc/libs/1_51_0/libs/units/) - Zero-overhead dimensional analysis and unit/quantity manipulation and conversion in C++.
 - [unitscpp](http://code.google.com/p/unitscpp/) - A lightweight C++ library for physical calculation with units.
 
