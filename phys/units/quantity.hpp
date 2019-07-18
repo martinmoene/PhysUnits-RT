@@ -90,7 +90,7 @@
 # endif
 #endif
 
-#if defined( PHYS_UNITS_COMPILER_IS_MSVC6 ) || defined( PHYS_UNITS_COMPILER_IS_MWERKS )
+#if defined( PHYS_UNITS_COMPILER_IS_MSVC ) || defined( PHYS_UNITS_COMPILER_IS_MWERKS )
 # define PHYS_UNITS_NO_PASCAL_IDENTIFIER
 #endif
 
@@ -101,6 +101,7 @@
  * will not interfere with the use of "pascal" as a keyword,
  * since the macro will be expanded only when followed by "()".
  */
+# undef pascal
 # define pascal() pascal_()
 #endif
 

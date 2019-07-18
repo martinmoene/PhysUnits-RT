@@ -103,17 +103,17 @@ inline double to_real( std::string const text )
 }
 
 /// long-string convertion shim.
-inline std::string to_string( long const x, int const base = 10 )
+inline std::string to_string( long const x )
 {
-    char buf[65] = "";
-
-    return _ltoa( x, buf, base );
+    std::ostringstream os;
+    os << x;
+    return os.str();
 }
 
 /// int-string convertion shim.
-inline std::string to_string( int const x, int const base = 10 )
+inline std::string to_string( int const x )
 {
-    return to_string( static_cast<long>(x), base );
+    return to_string( static_cast<long>(x) );
 }
 
 /// default strip set for strip(), strip_left(), strip_right().
