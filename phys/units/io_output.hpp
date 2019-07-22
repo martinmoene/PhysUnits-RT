@@ -361,7 +361,7 @@ define_unit( unitmap & m, std::string const name )
 
     assert( PHYS_UNITS_QUANTITY_UNIT_EXT_COUNT == PHYS_UNITS_DIMENSION_OF( table ) );
 
-    const int index = m.size();
+    const size_t index = m.size();
 
     if ( index >= PHYS_UNITS_DIMENSION_OF( table ) )
     {
@@ -519,7 +519,7 @@ struct unit_info
     /**
     * provide unit's symbol.
     */
-    std::string symbol( name_symbol name_symbol = name_symbol() ) const
+    std::string symbol( name_symbol name_sym = name_symbol() ) const
     {
         bool first = true;
         std::ostringstream os;
@@ -527,7 +527,7 @@ struct unit_info
         const int base_cnt = PHYS_UNITS_QUANTITY_UNIT_BASE_COUNT;
         const dimensions base_dim = dimensions( m_dim, 0, base_cnt );
 
-        if ( name_symbol && has_unit_name( base_dim ) )
+        if ( name_sym && has_unit_name( base_dim ) )
         {
             emit_dim( os, detail::unit_name( base_dim ), 1, first );
         }

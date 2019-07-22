@@ -22,10 +22,10 @@
 #include <limits>
 
 /*
- * Note: micro, µ, may not work everywhere, so you can define a glyph yourself:
+ * Note: micro, Âµ, may not work everywhere, so you can define a glyph yourself:
  */
 #ifndef PHYS_UNITS_MICRO_GLYPH
-# define PHYS_UNITS_MICRO_GLYPH "µ"
+# define PHYS_UNITS_MICRO_GLYPH "Âµ"
 #endif
 
 namespace rt { namespace phys { namespace units {
