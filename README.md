@@ -9,6 +9,7 @@ This easy to use header-only library is intended to work with a wide range of co
 
 Example
 ---------
+
 ```C++
 #include "phys/units/quantity.hpp"
 
@@ -22,6 +23,7 @@ int main()
 
 Other libraries
 -----------------
+
 - [PhysUnits-CT](https://github.com/martinmoene/PhysUnits-CT) - Compile-time companion of this library.  
 - [PhysUnits-CT-Cpp11](https://github.com/martinmoene/PhysUnits-CT-Cpp11) - C++11 compile-time companion of this library.  
 - [Boost.Units](http://www.boost.org/doc/libs/1_51_0/libs/units/) - Zero-overhead dimensional analysis and unit/quantity manipulation and conversion in C++.  
@@ -29,6 +31,7 @@ Other libraries
 
 Usage
 -------
+
 ### Definition of terms
 
 Adapted from Boost.Units:
@@ -40,6 +43,7 @@ Adapted from Boost.Units:
 - <b>Quantity</b>: A quantity represents a concrete amount of a unit. Thus, while the meter is the base unit of length in the SI system, 5.5 meters is a quantity of length in that system.
 
 ### Limitations
+
 This library only supports the use of the <em>SI unit system</em>. Note however that the library does provide a fixed number (10) of extension dimensions that you can assign names to.
 
 This library only supports <em>integral powers</em> of the dimensions.
@@ -49,6 +53,7 @@ The <em>representation or value type</em> in the implementation of quantity is f
 ### Output
 
 The following example shows the quantity type in the computation of work from force and distance and the printing of the result on standard output.
+
 ```C++
 #include <iostream>
 
@@ -77,13 +82,15 @@ int main()
 ```
 
 The output produced is:
-```
+
+```Text
 F  = 2 N
 dx = 2 m
 E  = 4 J
 ```
 
 The following example demonstrates printing in default floating point notation and in [engineering notation](http://en.wikipedia.org/wiki/Engineering_notation), using [metric prefixes](http://en.wikipedia.org/wiki/Metric_prefix).
+
 ```C++
 #include <iostream>
 
@@ -106,14 +113,18 @@ int main()
     }
 }
 ```
+
 The output produced is:
-```
+
+```Text
 R = 4700 Ohm
 R = 4.7 kOhm
 ```
+
 See namespaces `io` and `io::eng` for further information.
 
 Instead of unit names such as J, you can also obtain the unit expressed in base dimensions.
+
 ```C++
 #include <iostream>
 
@@ -128,13 +139,17 @@ int main()
     std::cout << "J = " << to_base_unit_symbols( joule() ) << std::endl;
 }
 ```
+
 The output produced is:
-```
+
+```Text
 J = m+2 kg s-2
 ```
 
 ### Unit name extension
+
 There are ten extension dimensions available: `extra_x0_d..extra_x9_d`. You can define names for these dimensions on a first come, first serve basis. The following example demonstrates the extension with a new unit (dimension) named `Foo`.
+
 ```C++
 #include <iostream>
 
@@ -153,11 +168,14 @@ int main()
               << "F = " << F << std::endl;
 }
 ```
+
 The output produced is:
-```
+
+```Text
 O = 1 Ohm
 F = 1 Foo
 ```
+
 If you only want to make a limited number of self-defined unit names available, you can predefine these via for example `unit("Foo", extend())` and omit parameter `extend()` from further calls to `unit()` and `to_quantity()`.
 
 ### Input
@@ -180,8 +198,10 @@ int main()
               << "quantity = " << to_quantity( "5 Foo" , extend()        ) << std::endl;
 }
 ```
+
 The output produced is:
-```
+
+```Text
 quantity = 3 Wb
 quantity = 4
 quantity = 5 Foo
@@ -194,6 +214,7 @@ Internally `to_quantity()` uses class `quantity_parser`.
 ### Convenience functions
 
 There are several convenience functions, such as:
+
 - `to_quantity(std::string text)` - the text, such as '9.8 m/s2' converted to quantity.
 - `to_unit(std::string text)`- the text, such as '45 km/h' converted to quantity representing the unit as '1 km/h'.
 - `to_numerical_value(std::string text)` - the text, such as '45 km/h' converted to value as '45'
@@ -208,6 +229,7 @@ There are several convenience functions, such as:
 Exceptions are used to signal errors in expressions that use incompatible dimensions and for several error conditions related to handling the textual representation of a quantity.
 
 The following example demonstrates simple error handling that prints the message provided by the exception.
+
 ```C++
 #include <iostream>
 
@@ -229,10 +251,13 @@ int main()
     }
 }
 ```
+
 The output produced is:
+
 ```
 Error: quantity: parsing unit '3 m/s/s': repetition of solidus at position 6: use parenthesis to avoid ambiguity
 ```
+
 For an example that uses `quantity_parser_error` from the quantity exception hierarchy, see the error handling in the program [PhysUnits.cpp](https://svn.eld.leidenuniv.nl/repos/eld-moene/PhysUnitsRT/trunk/projects/PhysUnits/PhysUnits.cpp), function `void interactive()`.
 
 ### Mixing run-time and compile-time libraries
@@ -240,11 +265,13 @@ Although this library seems to be in the `phys::units` namespace, it does so thr
 
 Dependencies
 --------------
+
 This library has no dependencies other than the standard C++ libraries.
 
 Performance
 -------------
-```
+
+```Text
 Relative running time (lower is better)
 
 Compiler        Option : double : quantity
@@ -259,6 +286,7 @@ Measured on a AMD Athlon 64 X2 Dual Core Processor 5600+, 64kB L1 Data, 64kB L1 
 
 Compilers known to work
 -------------------------
+
 - GCC 4.5.2, 4.6.2
 - MS VC6/VS6 - (VC6 lacks ADL).
 - MS VC8/VS2005
@@ -266,6 +294,7 @@ Compilers known to work
 
 Ideas for improvement
 -----------------------
+
 Currently the number of extension dimensions is fixed. Perhaps the code can be made to work so that the number of extension dimensions can be specified via a user-defined value of `PHYS_UNITS_QUANTITY_UNIT_EXT_COUNT`.
 
 Allow to specify a conversion offset between two units, e.g. to make conversion between 'C and K possible (see Boost.Units).
@@ -273,6 +302,7 @@ Allow to specify a conversion offset between two units, e.g. to make conversion 
 It may be nice if you can obtain a quantity in a unit representation of your choice, e.g. in kWh in stead of J [m+2 kg s-2]. See G.S. Novak. [Conversion of units of measurement (PDF)](http://reference.kfupm.edu.sa/content/c/o/conversion_of_units_of_measurement__42431.pdf)". 1 August 1997.
 
 ### References
+
 [1] Michael Kenniston. [The Quantity Library](http://home.xnet.com/~msk/quantity/quantity.html). ([Rationale](http://home.xnet.com/%7Emsk/quantity/quantity.html), Quantity [folder](http://www.xnet.com/%7Emsk/quantity)). 16 July 2001, rev 0.4.
 
 [2] Ambler Thompson and Barry N. Taylor. [Guide for the Use of the International System of Units (SI)](http://physics.nist.gov/cuu/pdf/sp811.pdf). NIST Special Publication 811 2008 Edition.
