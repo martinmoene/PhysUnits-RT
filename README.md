@@ -301,8 +301,11 @@ Allow to specify a conversion offset between two units, e.g. to make conversion 
 
 It may be nice if you can obtain a quantity in a unit representation of your choice, e.g. in kWh in stead of J [m+2 kg s-2]. See G.S. Novak. [Conversion of units of measurement (PDF)](http://reference.kfupm.edu.sa/content/c/o/conversion_of_units_of_measurement__42431.pdf)". 1 August 1997.
 
-### References
+References
+----------
 
 [1] Michael Kenniston. [The Quantity Library](http://home.xnet.com/~msk/quantity/quantity.html). ([Rationale](http://home.xnet.com/%7Emsk/quantity/quantity.html), Quantity [folder](http://www.xnet.com/%7Emsk/quantity)). 16 July 2001, rev 0.4.
 
 [2] Ambler Thompson and Barry N. Taylor. [Guide for the Use of the International System of Units (SI)](http://physics.nist.gov/cuu/pdf/sp811.pdf). NIST Special Publication 811 2008 Edition.
+
+[3] David B. Newell and Eite Tiesinga, Editors. [The International System of Units (SI)](https://doi.org/10.6028/NIST.SP.330-2019). NIST Special Publication 330 2019 Edition.
